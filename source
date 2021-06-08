@@ -1,0 +1,82 @@
+-- GAME SUPPORTS
+
+-- PRISON LIFE
+-- NINJA LEGENDS (COMING SOON)
+
+if game.PlaceId == 155615604 then
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Hudware | Prison Life", "Ocean")
+    
+    -- MAIN
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+    MainSection:NewButton("Kill All", "Kills everybody, if it doesnt kill everybody thats fine", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/jz9iW1ac"))()
+    end)
+    MainSection:NewDropdown("Give Gun", "Gives the localplayer a gun", {"M9", "Remington 870", "AK-47", "M4A1"}, function(v)
+        local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+    end)
+    MainSection:NewDropdown("Give Other", "Gives the localplayer other items", {"Key card", "Hammer", "Crude Knife", "Dinner"}, function(v)
+        local A_1 = game:GetService("Workspace")["Prison_ITEMS"].single[v].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+    end)
+
+    -- PLAYER
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Modifications")
+    PlayerSection:NewSlider("Walkspeed", "Changes localplayers walkspeed", 300, 16, function(v)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+    end)
+    PlayerSection:NewSlider("Jumppower", "Changes localplayers Jumppower", 300, 50, function(v)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+    end)
+    PlayerSection:NewButton("Noclip", "Go through walls, to toggle on or off click E", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/hDhxWvqU"))()
+    end)
+    PlayerSection:NewButton("Fly", "fly through air, to toggle on or off click E", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/7rXZ9VNc", true))()
+    end)
+
+    
+    
+    -- TELEPORTS
+    local Teleports = Window:NewTab("Teleports")
+    local TeleportsSection = Teleports:NewSection("Teleports")
+    TeleportsSection:NewButton("Outside Prison", "This button will teleport out of the prison", function()
+        local player = game.Players.LocalPlayer
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(301.568, 62.1983, 2017)
+    end)
+    TeleportsSection:NewButton("Inside Prison", "This button will teleport you into the prison", function()
+        local player = game.Players.LocalPlayer
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(934.47, 99.9872, 2374.18)
+    end)
+    TeleportsSection:NewButton("Prison Wall", "This button will teleport you on the prison wall", function()
+        local player = game.Players.LocalPlayer
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(833.852, 130.04, 2593.53)
+    end)
+    TeleportsSection:NewButton("Prison Jard", "This button will teleport you into the prison yard", function()
+        local player = game.Players.LocalPlayer
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(810.042, 97.9975, 2437.52)
+    end)
+    TeleportsSection:NewButton("Criminal Base", "This button will teleport you to the criminal base", function()
+        local player = game.Players.LocalPlayer
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(-943.451, 94.1288, 2059.84)
+    end)
+    TeleportsSection:NewButton("Guard Room", "This button will teleport you to the guard room", function()
+        local player = game.Players.LocalPlayer
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(833.005, 99.9558, 2270.59)
+    end)
+
+    -- FUN
+    local Fun = Window:NewTab("Fun")
+    local FunSection = Fun:NewSection("Fun")
+    FunSection:NewButton("R6 Anims", "A fun animation script to mess around", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/R1MgDiRX", true))()
+    end)
+    FunSection:NewButton("Fling", "A fun script fling script", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/zHxNWgY7", true))()
+    end)
+end
